@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "剪切板操作", "剪切板操作\剪切板操作.csproj", "{D4D133F8-35C4-4980-BCE4-FDB3A2600421}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "剪切板操作Form", "剪切板操作Form\剪切板操作Form.csproj", "{B9D3274A-EEFD-43EE-8832-9FFA7ECCCF60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D4D133F8-35C4-4980-BCE4-FDB3A2600421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4D133F8-35C4-4980-BCE4-FDB3A2600421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4D133F8-35C4-4980-BCE4-FDB3A2600421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D3274A-EEFD-43EE-8832-9FFA7ECCCF60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D3274A-EEFD-43EE-8832-9FFA7ECCCF60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D3274A-EEFD-43EE-8832-9FFA7ECCCF60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D3274A-EEFD-43EE-8832-9FFA7ECCCF60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
