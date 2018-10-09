@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "剪切板操作", "剪切板操作\剪切板操作.csproj", "{D4D133F8-35C4-4980-BCE4-FDB3A2600421}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "剪贴板操作", "剪贴板操作\剪贴板操作.csproj", "{D4D133F8-35C4-4980-BCE4-FDB3A2600421}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "剪切板操作Form", "剪切板操作Form\剪切板操作Form.csproj", "{B9D3274A-EEFD-43EE-8832-9FFA7ECCCF60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "剪贴板操作Form", "剪贴板操作Form\剪贴板操作Form.csproj", "{B9D3274A-EEFD-43EE-8832-9FFA7ECCCF60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

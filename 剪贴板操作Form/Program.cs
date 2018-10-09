@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace 剪切板操作Form
+namespace 剪贴板操作Form
 {
     internal static class Program
     {

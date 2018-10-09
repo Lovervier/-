@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace 剪切板操作Form.Properties
+namespace 剪贴板操作Form.Properties
 {
 
 

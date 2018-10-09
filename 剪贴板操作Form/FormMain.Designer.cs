@@ -1,4 +1,4 @@
-﻿namespace 剪切板操作Form
+﻿namespace 剪贴板操作Form
 {
     partial class FormMain
     {

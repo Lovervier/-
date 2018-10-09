@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace 剪切板操作Form
+namespace 剪贴板操作Form
 {
     public partial class FormMain : Form
     {
