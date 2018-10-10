@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -42,6 +43,12 @@
             this.Txt_Dangqianneirong = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.最小化ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.还原ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -49,6 +56,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Txt_Qianzhui.Location = new System.Drawing.Point(90, 17);
             this.Txt_Qianzhui.Name = "Txt_Qianzhui";
-            this.Txt_Qianzhui.Size = new System.Drawing.Size(277, 21);
+            this.Txt_Qianzhui.Size = new System.Drawing.Size(298, 21);
             this.Txt_Qianzhui.TabIndex = 2;
             this.Txt_Qianzhui.Text = "TL";
             // 
@@ -181,11 +189,57 @@
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.notifyIcon1.BalloonTipText = "远程开机程序运行。";
+            this.notifyIcon1.BalloonTipTitle = "网络工具";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "远程开机工具";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.最小化ToolStripMenuItem,
+            this.还原ToolStripMenuItem,
+            this.退出ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 70);
+            // 
+            // 最小化ToolStripMenuItem
+            // 
+            this.最小化ToolStripMenuItem.Name = "最小化ToolStripMenuItem";
+            this.最小化ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.最小化ToolStripMenuItem.Text = "最小化";
+            this.最小化ToolStripMenuItem.Click += new System.EventHandler(this.最小化ToolStripMenuItem_Click);
+            // 
+            // 还原ToolStripMenuItem
+            // 
+            this.还原ToolStripMenuItem.Name = "还原ToolStripMenuItem";
+            this.还原ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.还原ToolStripMenuItem.Text = "还原";
+            this.还原ToolStripMenuItem.Click += new System.EventHandler(this.还原ToolStripMenuItem_Click);
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(89, 17);
+            this.toolStripStatusLabel1.Text = "剪贴板监控中...";
             // 
             // FormMain
             // 
@@ -200,6 +254,7 @@
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.Text = "剪切板操作";
+            this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -209,6 +264,7 @@
             this.groupBox2.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +285,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 最小化ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 还原ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

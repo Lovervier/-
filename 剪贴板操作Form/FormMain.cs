@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using 剪切板操作Form.Properties;
 
 namespace 剪贴板操作Form
 {
@@ -28,11 +29,15 @@ namespace 剪贴板操作Form
             {
                 nextClipboardViewer = SetClipboardViewer(this.Handle);
                 Btn_Start.Text = "停止";
+                toolStripStatusLabel1.Text = "剪贴板监控中...";
+                timer1.Enabled = true;
             }
             else
             {
                 ChangeClipboardChain(this.Handle, nextClipboardViewer);
                 Btn_Start.Text = "开始";
+                toolStripStatusLabel1.Text = "停止监控";
+                timer1.Enabled = false;
             }
         }
 
@@ -42,6 +47,8 @@ namespace 剪贴板操作Form
 
         //Constants for API Calls...
         private const int WM_DRAWCLIPBOARD = 0x308;
+
+        private bool bTransparent = false;
 
         //Handle for next clipboard viewer...
         private IntPtr mNextClipBoardViewerHWnd;
@@ -115,6 +122,18 @@ namespace 剪贴板操作Form
 
         #endregion Message Process
 
+        private void FormMain_SizeChanged(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
         private void LstV_Dianbiaowenjian_DragDrop(object sender, DragEventArgs e)
         {
             string[] data = (string[])e.Data.GetData("FileDrop");
@@ -130,6 +149,23 @@ namespace 剪贴板操作Form
         private void LstV_Dianbiaowenjian_DragOver(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.All;
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if (Visible == false)
+                {
+                    Show();
+                    WindowState = FormWindowState.Normal;
+                    Activate();
+                }
+                else
+                {
+                    Hide();
+                }
+            }
         }
 
         private void OpenDianbiao(string filePath)
@@ -161,6 +197,22 @@ namespace 剪贴板操作Form
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (this.bTransparent)
+            {
+                this.bTransparent = false;
+                //显示透明图标
+                this.notifyIcon1.Icon = Resources.chinaz52;
+            }
+            else
+            {
+                this.bTransparent = true;
+                //显示托盘图标
+                this.notifyIcon1.Icon = Resources.chinaz53;
+            }
+        }
+
         private void Txt_Dangqianneirong_TextChanged(object sender, EventArgs e)
         {
             if (textchangedmark)
@@ -175,11 +227,11 @@ namespace 剪贴板操作Form
                     }
 
                     listBox1.BeginUpdate();
-                    listBox1.Items.Add(Txt_Dangqianneirong.Text);
+                    listBox1.Items.Insert(0, Txt_Dangqianneirong.Text);
                     listBox1.EndUpdate();
 
                     textchangedmark = false;
-                    if (Txt_Dangqianneirong.Text.StartsWith(Txt_Qianzhui.Text))
+                    if (!Txt_Dangqianneirong.Text.StartsWith(Txt_Qianzhui.Text))
                     {
                         string text = $"{Txt_Qianzhui.Text}{Txt_Dangqianneirong.Text}";
                         Clipboard.SetDataObject(text, true);
@@ -194,6 +246,22 @@ namespace 剪贴板操作Form
             {
                 textchangedmark = true;
             }
+        }
+
+        private void 还原ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void 退出ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void 最小化ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
