@@ -179,8 +179,11 @@ namespace 剪贴板操作Form
                     listBox1.EndUpdate();
 
                     textchangedmark = false;
-                    string text = $"{Txt_Qianzhui.Text}{Txt_Dangqianneirong.Text}";
-                    Clipboard.SetDataObject(text, true);
+                    if (Txt_Dangqianneirong.Text.StartsWith(Txt_Qianzhui.Text))
+                    {
+                        string text = $"{Txt_Qianzhui.Text}{Txt_Dangqianneirong.Text}";
+                        Clipboard.SetDataObject(text, true);
+                    }
 
                     //Txt_Dangqianneirong.Text += string.Format("搜索参数为 {0}" + Environment.NewLine + "共找到 {1} 条结果" + Environment.NewLine + "耗时 {2}" + Environment.NewLine + Environment.NewLine, key, result.Length, elapsed);
                     //Txt_Dangqianneirong.SelectionStart = Txt_Dangqianneirong.Text.Length;

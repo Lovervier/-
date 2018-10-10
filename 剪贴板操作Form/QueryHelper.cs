@@ -43,7 +43,7 @@ namespace BestString
                     //result = SearchHelper.Search(param, datas);
 
                     var q = from sentence in datas.AsParallel()
-                            where sentence == param
+                            where sentence.Contains(param)
                             select sentence;
                     result = q.ToArray();
 

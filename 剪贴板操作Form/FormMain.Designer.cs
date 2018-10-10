@@ -196,12 +196,9 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormMain";
-            this.ShowIcon = false;
             this.Text = "剪切板操作";
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
