@@ -168,6 +168,10 @@ namespace 剪贴板操作Form
             }
         }
 
+        /// <summary>
+        /// 加载点表
+        /// </summary>
+        /// <param name="filePath"> 点表路径。 </param>
         private void OpenDianbiao(string filePath)
         {
             if (File.Exists(filePath))
@@ -184,7 +188,10 @@ namespace 剪贴板操作Form
 
                         if (m.Success)
                         {
-                            DianBiao.Add(m.Groups["IOValue"].Value);
+                            if (!string.IsNullOrEmpty(m.Groups["IOValue"].Value))
+                            {
+                                DianBiao.Add(m.Groups["IOValue"].Value);
+                            }
                         }
                     }
                     LstV_Dianbiaowenjian.Items.Add(
