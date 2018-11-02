@@ -67,12 +67,21 @@ namespace 剪贴板操作Form
 
         #region Message Process
 
+        /// <summary>
+        /// 显示剪贴板中的信息
+        /// </summary>
         private void DisplayClipboardData()
         {
             //显示剪贴板中的文本信息
             if (Clipboard.ContainsText())
             {
-                Txt_Dangqianneirong.Text = Clipboard.GetText();
+                string str = string.Empty;
+                int num = 0;
+                while (string.IsNullOrEmpty(str) && num++ < 5) //如果取到的字符串为空则连续取字符串
+                {
+                    str = Clipboard.GetText();
+                }
+                Txt_Dangqianneirong.Text = str;
             }
             ////显示剪贴板中的图片信息
             //if (Clipboard.ContainsImage())
@@ -142,8 +151,6 @@ namespace 剪贴板操作Form
             {
                 OpenDianbiao(path);
             }
-
-            //((TextBox)sender).Text = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
         }
 
         private void LstV_Dianbiaowenjian_DragOver(object sender, DragEventArgs e)
@@ -222,6 +229,11 @@ namespace 剪贴板操作Form
 
         private void Txt_Dangqianneirong_TextChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Txt_Dangqianneirong.Text))
+            {
+                return;
+            }
+
             if (textchangedmark)
             {
                 string[] datas = DianBiao.ToArray();
