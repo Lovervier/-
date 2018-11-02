@@ -5,4 +5,4 @@
 
 #License
 --------
-该软件现在在[BSD 3-Clause "New" or "Revised" License] 许可下发布。 (https://github.com/Lovervier/ClipboardOperation/blob/master/LICENSE).
+该软件现在在[BSD 3-Clause "New" or "Revised" License](https://github.com/Lovervier/ClipboardOperation/blob/master/LICENSE)许可下发布。
